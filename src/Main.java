@@ -84,6 +84,7 @@ public class Main {
         */
 
 
+        /*
         double length = 0;
         double width = 0;
         double area = 0;
@@ -127,5 +128,43 @@ public class Main {
         System.out.println("The area of your rectangle is: " + area);
         System.out.println("The perimeter of your rectangle is: " + perimeter);
         System.out.println("The diagonal of your rectangle is: " + diagonal);
+        */
+
+
+        int randNum = 0;
+        int guessNum = 0;
+        boolean badInput = true;
+
+        Random gen = new Random();
+        randNum = gen.nextInt(10) + 1;
+
+        do {
+            badInput = true;
+            Scanner in = new Scanner(System.in);
+            System.out.println("What is your guess for the random number (1 - 10)? ");
+            if (in.hasNextInt()) {
+                guessNum = in.nextInt();
+                in.nextLine();
+                if (guessNum > 0 && guessNum < 11) {
+                    badInput = false;
+                }
+                else {
+                    System.out.println("That is an invalid input, try again...");
+                }
+            }
+            else {
+                System.out.println("That is an invalid input, try again...");
+            }
+        } while(badInput);
+
+        if (guessNum < randNum) {
+            System.out.println("Your guess of " + guessNum + " was lower than the random number of " + randNum);
+        }
+        else if (guessNum > randNum) {
+            System.out.println("Your guess of " + guessNum + " was higher than the random number of " + randNum);
+        }
+        else {
+            System.out.println("Your guess of " + guessNum + " was exactly the random number of " + randNum);
+        }
     }
 }
