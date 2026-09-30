@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,6 +26,7 @@ public class Main {
         */
 
 
+        /*
         double tankSize = 0;
         double fuelEff = 0;
         double price = 0;
@@ -79,5 +81,51 @@ public class Main {
 
         System.out.println("The cost to drive 100 miles is: " + cost);
         System.out.println("You can drive " + dist + " on a full tank.");
+        */
+
+
+        double length = 0;
+        double width = 0;
+        double area = 0;
+        double perimeter = 0;
+        double diagonal = 0;
+        boolean badInput = true;
+
+        do {
+            badInput = true;
+            Scanner in = new Scanner(System.in);
+            System.out.println("What is the length of the rectangle? ");
+            if (in.hasNextDouble()) {
+                length = in.nextDouble();
+                in.nextLine();
+                badInput = false;
+            }
+            else {
+                System.out.println("That is an invalid input, try again...");
+            }
+        } while(badInput);
+
+        do {
+            badInput = true;
+            Scanner in = new Scanner(System.in);
+            System.out.println("What is the width of the rectangle? ");
+            if (in.hasNextDouble()) {
+                width = in.nextDouble();
+                in.nextLine();
+                badInput = false;
+            }
+            else {
+                System.out.println("That is an invalid input, try again...");
+            }
+        } while(badInput);
+
+        area = length * width;
+        perimeter = (length * 2) + (width * 2);
+        diagonal = (length * length) + (width * width);
+        diagonal = Math.sqrt(diagonal);
+
+        System.out.println("The area of your rectangle is: " + area);
+        System.out.println("The perimeter of your rectangle is: " + perimeter);
+        System.out.println("The diagonal of your rectangle is: " + diagonal);
     }
 }
